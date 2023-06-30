@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 </head>
+{% load socialaccount %}
 
 <body>
     <h1>로그인</h1>
@@ -19,6 +20,9 @@
             <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요.">
         </div>
         <input type="submit" value="로그인">
+        <a href="{% provider_login_url 'google' %}">
+            <i>구글 로그인</i>
+        </a>
         <hr>
     </form>
 </body>

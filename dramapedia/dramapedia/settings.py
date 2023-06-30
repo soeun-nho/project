@@ -30,9 +30,9 @@ MEDIA_URL = '/media/'
 SECRET_KEY = "django-insecure-5jv&k355n0(a!guxthxb%zb4g!w9xuijof_k!x769qf!b-$n6("
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['soeun11.pythonanywhere.com']
 
 
 # Application definition
@@ -48,6 +48,12 @@ INSTALLED_APPS = [
     "ranking",
     "blog",
     "accounts",
+    # 소셜 로그인을 위한 설정
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -135,3 +141,16 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+LOGIN_REDIRECT_URL = '/'
+

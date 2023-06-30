@@ -35,7 +35,7 @@ def post_detail(request, id):
     comment_form = CommentForm()
     context={ 
         'post':post,
-        'comment_form' : comment_form
+        'comment_form' : comment_form,
     }
     return render(request, 'post_detail.html', context)
 

@@ -10,13 +10,13 @@
 
 <body>
   <h2>제목 : {{post.title}}</h2>
-  <h4>작성시간 : {{post.created_at}}</h4>
+  <h4>작성시간 : {{post.date}}</h4>
   <h4>작성자 : {{post.author}} </h4>
   <hr />
   {% if post.photo %}
   <img src="{{ post.photo.url }}" alt="" height="300" />
   {% endif %}
-  <p>{{post.body}}</p>
+  <p>{{post.content}}</p>
   {% if request.user == post.author %}
   <a href="{% url 'post_update' post.id %}">게시글 수정하기</a>
   <a href="{% url 'post_delete' post.id %}">게시글 삭제하기</a>
@@ -42,7 +42,6 @@
   <p>{{ comment}}</p>
   {% if request.user == comment.author %}
   <a href="{% url 'update_comment' post.id comment.id%}"> 수정</a>
-  <hr />
   <a href="{% url 'delete_comment' post.id comment.id %}"> 삭제 </a>
   <hr />
   {%endif%}
